@@ -1,5 +1,5 @@
 
-package com.example.SpringJobApp.repo;
+package com.example.SpringJobApp.repo.job;
 
 import java.util.List;
 

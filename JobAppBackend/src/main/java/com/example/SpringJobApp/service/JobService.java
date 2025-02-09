@@ -7,34 +7,33 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.SpringJobApp.model.JobPost;
-import com.example.SpringJobApp.repo.JobRepo;
-/*import com.example.SpringJobApp.repo.JobRepo;*/
+import com.example.SpringJobApp.jobmodel.JobPost;
+import com.example.SpringJobApp.repo.job.JobRepo;
 
 @Service
 public class JobService {
 
 	@Autowired
-	private JobRepo repo;
+	private JobRepo jobRepo;
 
 	public void addJob(JobPost jobPost) {
-		repo.save(jobPost);
+		jobRepo.save(jobPost);
 	}
 
 	public List<JobPost> getAllJobPosts() {
-		return repo.findAll();
+		return jobRepo.findAll();
 	}
 
 	public JobPost getJob(int jobId) {
-		return repo.findById(jobId).orElse(new JobPost());
+		return jobRepo.findById(jobId).orElse(new JobPost());
 	}
 
 	public void updateJobPost(JobPost jobPost) {
-		repo.save(jobPost);
+		jobRepo.save(jobPost);
 	}
 
 	public void deleteJobPost(int jobId) {
-		repo.deleteById(jobId);
+		jobRepo.deleteById(jobId);
 	}
 
 	public void load() {
@@ -53,10 +52,10 @@ public class JobService {
 
 		));
 
-		repo.saveAll(jobs);
+		jobRepo.saveAll(jobs);
 	}
 
 	public List<JobPost> search(String keyword) {
-		return repo.findByPostProfileContainingOrPostDescContaining(keyword, keyword);
+		return jobRepo.findByPostProfileContainingOrPostDescContaining(keyword, keyword);
 	}
 }

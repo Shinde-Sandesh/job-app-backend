@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.SpringJobApp.model.JobPost;
+import com.example.SpringJobApp.jobmodel.JobPost;
 import com.example.SpringJobApp.service.JobService;
 
 @RestController
