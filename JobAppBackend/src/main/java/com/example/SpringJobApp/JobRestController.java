@@ -27,7 +27,6 @@ public class JobRestController {
 		System.out.println("RESPONSE");
 		return service.getAllJobPosts();
 	}
-
 	@GetMapping("jobPost/{jobId}")
 	public JobPost getJobPost(@PathVariable("jobId") int jobId) {
 		return service.getJob(jobId);
